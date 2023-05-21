@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    env_file:
+      - envs/sqlserver.env
+    ports: 
+    - 1433:1433
+    volumes:
+      - sql-storage:/var/opt/mssql
+  
+volumes:
+  sql-storage:
+      
